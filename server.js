@@ -17,6 +17,15 @@ const app = express()
 app.use(cors()) // Open to all requests.
 
 
+app.get('/api/v1/steamers/vanityurl/:name', (req, res) => {
+  console.log(`Hit /steamers/vanityurl/${req.params.name}`)
+  superAgent.get(`${_API_}/ISteamUser/ResolveVanityURL/v0001/?key=${process.env.KEY}&vanityurl=${req.params.name}`)
+    .then( result => {
+      console.log('Sending results for /steamers/vanityurl/:name')
+      res.send(JSON.parse(result.text).response.steamid)
+    })
+})
+
 app.get('/api/v1/steamers/:id', (req, res) =>{
   console.log(`Hit /steamers/${req.params.id}`)
 
