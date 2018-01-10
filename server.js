@@ -16,9 +16,10 @@ client.on('error', error => console.log('Error connecting to DB:', error))
 const app = express()
 app.use(cors()) // Open to all requests.
 
+// ----------- SteamAPI Endpoints ---------------
 
 app.get('/api/v1/steamers/vanityurl/:name', (req, res) => {
-  console.log(`Hit /steamers/vanityurl/${req.params.name}`)
+  console.log(`Hit get /steamers/vanityurl/${req.params.name}`)
   superAgent.get(`${_API_}/ISteamUser/ResolveVanityURL/v0001/?key=${process.env.KEY}&vanityurl=${req.params.name}`)
     .then( result => {
       console.log('Sending results for /steamers/vanityurl/:name')
@@ -27,7 +28,7 @@ app.get('/api/v1/steamers/vanityurl/:name', (req, res) => {
 })
 
 app.get('/api/v1/steamers/:id', (req, res) =>{
-  console.log(`Hit /steamers/${req.params.id}`)
+  console.log(`Hit get /steamers/${req.params.id}`)
 
   superAgent.get(`${_API_}/IPlayerService/GetOwnedGames/v0001/?key=${process.env.KEY}&steamid=${req.params.id}&format=json&include_appinfo=1`)
     .then( result => {
@@ -36,6 +37,25 @@ app.get('/api/v1/steamers/:id', (req, res) =>{
     }).catch(err => console.log('Err in /steamers/:id :', err))
 })
 
+// --------------- Leaderboard Endpoints ----------------
+
+app.get('/api/v1/leaderboard', (req, res) =>{
+  console.log('Hit get /leaderboard.')
+  client.query('SELECT * FROM leaderboard')
+    .then( data => {
+      console.log('Sending results for get /leaderboard.')
+      res.send(data.rows)
+    })
+})
+
+
+
+
+
+
+
+
+// --------------- Other Endpoints -----------------------
 
 app.get('/test', (req, res) => {
   console.log('Test route hit.')
