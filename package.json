@@ -1,0 +1,28 @@
+{
+  "name": "do_you_even_steam_3",
+  "version": "1.0.0",
+  "description": "fullstack SPA app",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaeltreat/Do_You_Even_Steam_3.git"
+  },
+  "keywords": [
+    "spa",
+    "mvc",
+    "crud",
+    "steamapi",
+    "fullstack",
+    "node.js"
+  ],
+  "author": "KillerTreatDev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michaeltreat/Do_You_Even_Steam_3/issues"
+  },
+  "homepage": "https://github.com/michaeltreat/Do_You_Even_Steam_3#readme"
+}
