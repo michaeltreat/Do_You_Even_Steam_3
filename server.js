@@ -12,6 +12,25 @@ client.connect()
 client.on('error', error => console.log('Error connecting to DB:', error))
 
 const app = express()
+
 app.use(cors()) // Open to all requests.
+
+app.get('/test', (req, res) =>{
+  console.log('Test route hit.')
+  res.send( 'Successful hit on test route.')
+} )
+
+app.get('/api/v1/accounts', (req, res) =>{
+  client.query(`
+    SELECT COUNT(*) FROM accounts
+  `).then(results => {
+    console.log(results.rows)
+    res.send(results.rows)
+  })
+})
+
+
+
+
 
 app.listen(PORT, () => console.log('Connected on port:', PORT))
