@@ -48,9 +48,13 @@ app.get('/api/v1/leaderboard', (req, res) =>{
     })
 })
 
+app.post('/api/v1/leaderboard', bodyParser, (req, res) => {
+  console.log('Hit Post /leaderboard')
+  client.query(`INSERT INTO leaderboard(name, hours) VALUES('${req.body.name}', ${req.body.hours})`)
+  res.send('Insert Successful.')
+})
 
-
-
+asdfasdf2asdfa
 
 
 
