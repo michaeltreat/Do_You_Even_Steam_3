@@ -6,13 +6,18 @@ var app = app || {};
 
   const homeView = {}
 
-  homeView.initHomeView = () => {
+  homeView.initHomeView = (ctx, next) => {
+    console.log(ctx)
     $('.page').hide()
     $('#home-view').show()
+
     $('#search-steamer').on('submit', (e) => {
+      console.log(ctx)
       e.preventDefault()
-      $('#home-view input').val()
+      ctx.vanityurl = $('#home-view input').val()
       $('#home-view input').val('')
+      console.log(ctx)
+      next()
     })
   }
   
