@@ -11,6 +11,7 @@ var app = app || {};
     console.log(ctx)
     $('.page').hide()
     $('#shame-view').show()
+    
   }
   
   module.shameView = shameView

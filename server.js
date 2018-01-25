@@ -34,7 +34,7 @@ app.get('/api/v1/steamers/vanityurl/:name', (req, res) => {
 app.get('/api/v1/steamers/:id', (req, res) =>{
   console.log(`Hit GET /steamers/${req.params.id}`)
   superAgent.get(`${_API_}/IPlayerService/GetOwnedGames/v0001/?key=${KEY}&steamid=${req.params.id}&format=json&include_appinfo=1`)
-    .then( result => res.send(result))
+    .then( result => res.send(result.text))
     .catch(err => console.log( err))
 })
 

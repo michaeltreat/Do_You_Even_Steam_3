@@ -14,31 +14,47 @@ var app = app || {};
     this.gameData;
     this.games;
     this.gameCount;
-    Steamer.steamers.push(this)
+    Steamer.steamer = this
     return this
   }
   
-  Steamer.prototype.getSteamId = function(){
+  Steamer.prototype.getSteamId = function(ctx, cb){
+    console.log('In getSteamId')
     $.get(`${_API_}/steamers/vanityurl/${this.vanityUrl}`)
-      .then(results => this.steamId = JSON.parse(results).response.steamid)
-      .catch( err => console.log(err))
+      .then( results => {
+        results = JSON.parse(results)
+        // If there is a vaild response, return and run the next .then. Otherwise switch the vanityUrl and steamId, as the user may have entered in the SteamId.
+        if(results.response.steamid) return this.steamId = results.response.steamid
+        this.steamId = this.vanityUrl
+        this.vanityUrl = null
+        return this
+      })
+      .then( () => this.getUserData(ctx, cb))
+      .catch( err => {
+        console.log(err)
+        this.steadId = this.vanityUrl
+        this.getUserData(ctx, cb)
+      })
   }
   
-  Steamer.prototype.getUserData = function(){
+  Steamer.prototype.getUserData = function(ctx, cb){
+    console.log('In getUserData')
     $.get(`${_API_}/steamers/${this.steamId}`)
       .then(results => {
-        this.gameData = JSON.parse(results.text).response
+        results = JSON.parse(results.text)
+        console.log(results)
+        this.gameData = results.response
         this.games = this.gameData.games
         this.gameCount = this.gameData.gameCount
-      })
+        return this
+      }).then( steamer => steamer)
       .catch(err => console.log(err))
   }
 
-  Steamer.prototype.calculateTotalHours = function(){
+  Steamer.prototype.calculateTotalHours = function(ctx, cb){
     console.log(this.games)
   }
   
-  Steamer.steamers = []
   module.Steamer = Steamer
 
 })(app)
