@@ -12,7 +12,7 @@ var app = app || {};
     $('#invalid-user-error').hide()
     $('#home-view').show()
 
-    $('#search-steamer').on('submit', (e) => {
+    $('#search-steamer').off().on('submit', (e) => {
       e.preventDefault()
       ctx.vanityurl = $('#home-view input').val()
       $('#home-view input').val('')
@@ -21,6 +21,7 @@ var app = app || {};
       new app.Steamer(`${ctx.vanityurl}`).getSteamId(ctx, next)
     })
   }
+
   homeView.errorInvalidSteamer = (ctx, next) => {
     $('#invalid-user-error').show()
   }

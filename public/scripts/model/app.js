@@ -19,6 +19,7 @@ var app = app || {};
   }
   
   Steamer.prototype.getSteamId = function(ctx, next){
+    console.log('In getSteamId')
     $.get(`${_API_}/steamers/vanityurl/${this.vanityUrl}`)
       .then( data => {
         data = JSON.parse(data)
@@ -44,6 +45,7 @@ var app = app || {};
   }
   
   Steamer.prototype.getUserData = function(ctx, next){
+    console.log('In getUserData')
     $.get(`${_API_}/steamers/${this.steamId}`)
       .then(results => {
         // Return false if the api returns failed. will prompt errorview.
@@ -65,7 +67,12 @@ var app = app || {};
   Steamer.prototype.calcHours = function(ctx, next){
     this.hours = this.games.map( game => game.playtime_forever).reduce( (hour, cum) => cum += hour, 0 ) / 60
     ctx.steamer = this
+    localStorage.steamer = JSON.stringify(this)
     next()
+  }
+
+  Steamer.prototype.renderShame = function(){
+    console.log('i am ashamed')
   }
   
   module.Steamer = Steamer
