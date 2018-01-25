@@ -11,6 +11,9 @@ var app = app || {};
     this.steamId = steamIdNumber
     this.hours = hours
     this.games = games
+    this.gameData;
+    this.games;
+    this.gameCount;
     Steamer.steamers.push(this)
     return this
   }
@@ -21,6 +24,15 @@ var app = app || {};
       .catch( err => console.log(err))
   }
   
+  Steamer.prototype.getUserData = function(){
+    $.get(`${_API_}/steamers/${this.steamId}`)
+      .then(results => {
+        this.gameData = JSON.parse(results.text).response
+        this.games = this.gameData.games
+        this.gameCount = this.gameData.gameCount
+      })
+      .catch(err => console.log(err))
+  }
   
   Steamer.steamers = []
   module.Steamer = Steamer
