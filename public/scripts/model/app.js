@@ -11,9 +11,12 @@ var app = app || {};
     this.steamId = steamIdNumber
     this.hours = hours
     this.games = games
+
     this.gameData;
     this.games;
-    this.gameCount;
+    this.gamesCount;
+    this.rank = 'No position yet!'
+    this.wage;
     Steamer.steamer = this
     return this
   }
@@ -54,7 +57,7 @@ var app = app || {};
         results = JSON.parse(results.text)
         this.gameData = results.response
         this.games = this.gameData.games
-        this.gameCount = this.gameData.gameCount
+        this.gamesCount = this.gameData.game_count
         return this
 
       }).then( validUser => {
@@ -66,6 +69,7 @@ var app = app || {};
 
   Steamer.prototype.calcHours = function(ctx, next){
     this.hours = this.games.map( game => game.playtime_forever).reduce( (hour, cum) => cum += hour, 0 ) / 60
+    this.wage = this.hours * 15
     ctx.steamer = this
     localStorage.steamer = JSON.stringify(this)
     next()

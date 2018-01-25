@@ -13,6 +13,7 @@ var app = app || {};
     $('#home-view').show()
 
     $('#search-steamer').off().on('submit', (e) => {
+      $('.error').hide()
       e.preventDefault()
       ctx.vanityurl = $('#home-view input').val()
       $('#home-view input').val('')
