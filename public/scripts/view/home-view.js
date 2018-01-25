@@ -9,6 +9,7 @@ var app = app || {};
   homeView.initHomeView = (ctx, next) => {
     console.log('Inside initHomeView')
     $('.page').hide()
+    $('#invalid-user-error').hide()
     $('#home-view').show()
 
     $('#search-steamer').on('submit', (e) => {
@@ -20,6 +21,8 @@ var app = app || {};
       new app.Steamer(`${ctx.vanityurl}`).getSteamId(ctx, next)
     })
   }
-  
+  homeView.errorInvalidSteamer = (ctx, next) => {
+    $('#invalid-user-error').show()
+  }
   module.homeView = homeView
 })(app)
