@@ -11,8 +11,18 @@
     <link rel="stylesheet" href="styles/base.css">
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/module.css">
-  </head>
 
+    <!-- Handlebars Templates -->
+
+    <script type="text/x-handlebars-template" id="game-details-template">
+      <article>
+        <h3>{{name}}</h3>
+        <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{appid}}/{{img_logo_url}}.jpg">
+        <p>Hours played: {{playtime_forever}}</p>
+      </article>
+    </script>
+
+  </head>
   <body>
     <nav>
       <ul>
@@ -42,10 +52,14 @@
       <p id="shame-nouser-error" class="error">You must input a user to begin!</p>
       <p id="shame-localuser-error" class="error">This is a cached version of the last Steamer that logged in. To see the most recent data, please re-enter the Steamer</p>
         <h2>shame-view</h2>
+        
     </section>
 
     <section id="games-view" class="page">
+        <p id="game-nouser-error" class="error">You must input a user to begin!</p>
+        <p id="game-localuser-error" class="error">This is a cached version of the last Steamer that logged in. To see the most recent data, please re-enter the Steamer</p>
         <h2>games-view</h2>
+        <div id="games-list"></div>
     </section>
 
     <section id="leaderboard-view" class="page">

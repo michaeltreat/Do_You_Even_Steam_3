@@ -25,5 +25,6 @@ var app = app || {};
   homeView.errorInvalidSteamer = (ctx, next) => {
     $('#invalid-user-error').show()
   }
+  
   module.homeView = homeView
 })(app)

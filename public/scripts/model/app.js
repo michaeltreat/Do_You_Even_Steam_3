@@ -71,9 +71,6 @@ var app = app || {};
     next()
   }
 
-  Steamer.prototype.renderShame = function(){
-    console.log('i am ashamed')
-  }
   
   module.Steamer = Steamer
 
