@@ -7,6 +7,7 @@ const cors = require('cors') // Allows us to accept all requests.
 const bodyParser = require('body-parser').urlencoded({extended: true}) // To parse the body of our requests.
 
 const PORT = process.env.PORT || 3000
+const KEY = process.env.KEY
 const _API_ = 'https://api.steampowered.com' 
 
 
@@ -21,16 +22,18 @@ app.use(cors()) // Open to all requests.
 
 // ----------- SteamAPI Endpoints ---------------
 
+
+// IF a user has a vanityURL, then we need to make a request to get their user ID. This sends back the steamid
 app.get('/api/v1/steamers/vanityurl/:name', (req, res) => {
   console.log(`Hit GET /steamers/vanityurl/${req.params.name}`)
-  superAgent.get(`${_API_}/ISteamUser/ResolveVanityURL/v0001/?key=${process.env.KEY}&vanityurl=${req.params.name}`)
-    .then( result => res.send(result.text.response.steamid))
-    .catch( err => res.send('there was an error in the GET /vanityurl endpoint', err))
+  superAgent.get(`${_API_}/ISteamUser/ResolveVanityURL/v0001/?key=${KEY}&vanityurl=${req.params.name}`)
+    .then( result => res.send(result.text))
+    .catch( err => console.log(err))
 })
 
 app.get('/api/v1/steamers/:id', (req, res) =>{
   console.log(`Hit GET /steamers/${req.params.id}`)
-  superAgent.get(`${_API_}/IPlayerService/GetOwnedGames/v0001/?key=${process.env.KEY}&steamid=${req.params.id}&format=json&include_appinfo=1`)
+  superAgent.get(`${_API_}/IPlayerService/GetOwnedGames/v0001/?key=${KEY}&steamid=${req.params.id}&format=json&include_appinfo=1`)
     .then( result => res.send(result))
     .catch(err => console.log( err))
 })
