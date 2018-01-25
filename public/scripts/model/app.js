@@ -33,6 +33,10 @@ var app = app || {};
       })
       .catch(err => console.log(err))
   }
+
+  Steamer.prototype.calculateTotalHours = function(){
+    console.log(this.games)
+  }
   
   Steamer.steamers = []
   module.Steamer = Steamer
