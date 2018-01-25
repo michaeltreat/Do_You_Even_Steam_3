@@ -52,7 +52,7 @@ app.get('/api/v1/leaderboard', (req, res) =>{
 
 app.post('/api/v1/leaderboard', bodyParser, (req, res) => {
   console.log('Hit POST /leaderboard')
-  client.query(`INSERT INTO leaderboard(name, hours) VALUES('${req.body.name}', ${req.body.hours})`)
+  client.query(`INSERT INTO leaderboard(steamid, hours, vanity) VALUES(${req.body.steamid}, ${req.body.hours}, '${req.body.vanity}')`)
     .then(() => res.send('Insert Successful.'))
     .catch( err => console.log(err))
 })
