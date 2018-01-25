@@ -1,58 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
 
-  <link rel="stylesheet" href="styles/reset.css">
-  <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="styles/layout.css">
-  <link rel="stylesheet" href="styles/module.css">
-</head>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/module.css">
+  </head>
 
-<body>
-  <nav></nav>
+  <body>
+    <nav></nav>
 
-  <section id="home-view" class="page">
-    <form id="search-steamer">
-      <label for="steamer">Search for a Steamer:<input type="text" name="steamer"><button type="submit">Submit</button> </label>
-    </form>
+    <section id="home-view" class="page">
+      <h2>home-view</h2>
+      <form id="search-steamer">
+        <label for="steamer">Search for a Steamer:<input type="text" name="steamer"><button type="submit">Submit</button></label>
+      </form>
 
-  </section>
+    </section>
 
-  <section id="help-view" class="page"></section>
+    <section id="help-view" class="page">
+      <h2>help-view</h2>
+    </section>
 
-  <section id="shame-view" class="page"></section>
+    <section id="shame-view" class="page">
+        <h2>shame-view</h2>
+    </section>
 
-  <section id="games-view" class="page"></section>
+    <section id="games-view" class="page">
+        <h2>games-view</h2>
+    </section>
 
-  <section id="leaderboard-view" class="page"></section>
+    <section id="leaderboard-view" class="page">
+        <h2>leaderboard-view</h2>
+    </section>
 
-  <section id="about-view" class="page"></section>
+    <section id="about-view" class="page">
+        <h2>about-view</h2>
+    </section>
+      
+
+    <!-- CDNS -->
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous">
+    </script>
+
+    <!-- Models -->
+    <script src="scripts/model/app.js"></script>
+
+    <!-- Views -->
+    <script src="scripts/view/home-view.js"></script>
+    <script src="scripts/view/shame-view.js"></script>
+    <script src="scripts/view/games-view.js"></script>
+    <script src="scripts/view/leaderboard-view.js"></script>
+    <script src="scripts/view/help-view.js"></script>
+    <script src="scripts/view/about-view.js"></script>
     
- 
-</body>
-<script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
-
-<script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous">
-</script>
-
-<script src="scripts/model/app.js"></script>
-
-<script src="scripts/view/home-view.js"></script>
-<script src="scripts/view/shame-view.js"></script>
-<script src="scripts/view/games-view.js"></script>
-<script src="scripts/view/leaderboard-view.js"></script>
-<script src="scripts/view/help-view.js"></script>S
-<script src="scripts/view/about-view.js"></script>
-
-<script src="scripts/controller/routes.js"></script>
-
+    <!-- Controller -->
+    <script src="scripts/controller/routes.js"></script>
+  </body>
 
 </html>

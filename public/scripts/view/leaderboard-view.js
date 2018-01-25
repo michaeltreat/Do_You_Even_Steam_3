@@ -5,7 +5,7 @@ var app = app || {};
 (function(module){
   const leaderboardView = {}
 
-  leaderboardView.initLeaderboardView = (ctx){
+  leaderboardView.initLeaderboardView = ctx =>{
     console.log('Inside leaderboar-view!')
     console.log(ctx)
     $('.page').hide()
