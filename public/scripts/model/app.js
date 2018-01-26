@@ -34,7 +34,7 @@ var app = app || {};
         if(this.vanityUrl.length !== 17 || isNaN(Number(this.vanityUrl))) return false
 
         this.steamId = this.vanityUrl
-        delete this.vanityUrl
+        this.vanityUrl = ''
         return this
       })
 
