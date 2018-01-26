@@ -42,17 +42,37 @@ app.get('/api/v1/steamers/:id', (req, res) =>{
 })
 
 // --------------- Leaderboard Endpoints ----------------
-
+// Gets all users
 app.get('/api/v1/leaderboard', (req, res) =>{
   console.log('Hit GET /leaderboard.')
-  client.query('SELECT * FROM leaderboard')
+  client.query(`SELECT * FROM leaderboard WHERE vanity NOT IN ('')`)
     .then( data => res.send(data.rows))
-    .catch( err => console.log(err))
+    .catch( err => {
+      res.send('No leaderboard yet')
+      console.log(err)
+    })
+})
+
+app.get('/api/v1/leaderboard/:steamid', (req, res) => {
+  console.log(`Hit Get /leaderboard/:${req.params.steamid}`)
+  client.query(`select * from leaderboard where steamid = '${req.params.steamid}'`)
+    .then( result => res.send(result.rows))
+    .catch( err => {
+      res.send('No match')
+      console.log(err)
+    })
 })
 
 app.post('/api/v1/leaderboard', bodyParser, (req, res) => {
   console.log('Hit POST /leaderboard')
-  client.query(`INSERT INTO leaderboard(name, hours) VALUES('${req.body.name}', ${req.body.hours})`)
+  client.query(`
+    INSERT INTO leaderboard(steamid, hours, vanity)
+    VALUES(${req.body.steamid}, ${req.body.hours}, '${req.body.vanity}') 
+    ON CONFLICT (steamid) DO UPDATE
+      SET
+       hours=${req.body.hours},
+       vanity='${req.body.vanity}'
+    `)
     .then(() => res.send('Insert Successful.'))
     .catch( err => console.log(err))
 })
