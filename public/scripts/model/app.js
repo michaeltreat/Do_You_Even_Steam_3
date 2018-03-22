@@ -4,7 +4,7 @@ var app = app || {};
 
 (function(module){
 
-  const _API_ = 'http://localhost:3000/api/v1'
+  const _API_ = 'https://dyes.herokuapp.com/api/v1'
 
   function Steamer(vanityUrl, steamIdNumber, hours, games){
     this.vanityUrl = vanityUrl
