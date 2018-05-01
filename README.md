@@ -1,10 +1,8 @@
 # Do_You_Even_Steam_3
-Remake of SPA app that uses the Steam API
-
 
 This is a remake of another SPA that I built that utilizes the Steam API. 
 
-This uses an no longer supported library called PageJS. The goal was to get this app to an MVP using basic jQuery and minimal libraries, then migrate it over to a more advanced FE setup like Angular and React. 
+This uses an no-longer-supported library called PageJS. The goal was to get this app to an MVP using basic jQuery and minimal libraries, then migrate it over to a more advanced FE setup like Angular and React. 
 
 The leaderboard functionality is almost complete, but the project was put on hold due to other contracted projects taking priority. 
 
