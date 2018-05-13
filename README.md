@@ -14,7 +14,7 @@ https://michaeltreat.github.io/Do_You_Even_Steam_3/
 
 1. Click home.
 2. Enter your steamID or your vanityURL ( make sure your profile on steam is set to public, not private).
-  - 2a. If you don't have a Steam account or you aren't sure of either of your names, then you can enter `KillerTreat` to see my data. You can also type in something gamer-like and you'll likely find a user that chose that as their name, and you can see their stats.
+  - If you don't have a Steam account or you aren't sure of either of your names, then you can enter `KillerTreat` to see my data. You can also type in something gamer-like and you'll likely find a user that chose that as their name, and you can see their stats.
 3. If a user is found, it will automatically bring you to the Steamer Shame page for an overview of your stats.
 4. Click on the `Game Stats` link to see a breakdown of each of your games.
 
