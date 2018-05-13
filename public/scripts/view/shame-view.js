@@ -4,14 +4,14 @@
 var app = app || {};
 
 {
-  class shameView {
+  class ShameView {
 
     initShameView(){
       $('.page').hide()
       $('#shame-view').show()
 
-      if(!app.Steamer.steamer) return app.shameView.errorNoSteamer()
-      shameView.renderShame()
+      if(!app.Steamer.steamer) return app.ShameView.errorNoSteamer()
+      ShameView.renderShame()
     }
 
     errorNoSteamer() {
@@ -22,19 +22,19 @@ var app = app || {};
 
       // Add the cached flag to trigger warning for the user that this is just the cached version.
       app.Steamer.steamer.cached = true
-      shameView.renderShame()
+      ShameView.renderShame()
     }
 
     renderShame() {
       if(app.Steamer.steamer.cached) $('#shame-localuser-error').show()
-      if(shameView.alreadyRendered) return
+      if(ShameView.alreadyRendered) return
 
-      shameView.alreadyRendered = true
+      ShameView.alreadyRendered = true
       let template = Handlebars.compile($('#shame-template').text())
       $('#shame-view').append(template(app.Steamer.steamer))
     }
   }
 
-  shameView.alreadyRendered = false;
-  app.shameView = shameView
+  ShameView.alreadyRendered = false;
+  app.ShameView = new ShameView()
 }

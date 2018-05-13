@@ -3,7 +3,7 @@
 var app = app || {};
 
 {
-  class leaderboardView {
+  class LeaderboardView {
     initLeaderboardView(ctx){
       console.log('Inside leaderboar-view!')
       console.log(ctx)
@@ -12,5 +12,5 @@ var app = app || {};
     }
   }
 
-  app.leaderboardView = leaderboardView
+  app.LeaderboardView = new LeaderboardView()
 }

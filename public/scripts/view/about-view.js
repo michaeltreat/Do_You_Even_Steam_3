@@ -3,7 +3,7 @@
 var app = app || {};
 
 {
-  class aboutView{
+  class AboutView{
     initAboutView(){
       console.log('Inside about-view.')
 
@@ -11,5 +11,5 @@ var app = app || {};
       $('#about-view').show()
     }
   }
-  app.aboutView = aboutView
+  app.AboutView = new AboutView()
 }

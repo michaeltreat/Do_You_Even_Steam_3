@@ -3,7 +3,7 @@
 var app = app || {};
 
 {
-  class helpView {
+  class HelpView {
     initHelpView(){
       console.log('Inside help-view.')
       $('.page').hide()
@@ -11,5 +11,5 @@ var app = app || {};
     }
   }
 
-  app.helpView = helpView
+  app.HelpView = new HelpView()
 }

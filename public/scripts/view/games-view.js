@@ -5,14 +5,14 @@ var app = app || {};
 
 {
 
-  class gamesView {
+  class GamesView {
 
     initGamesView(){
       $('.page').hide()
       $('#games-view').show()
 
-      if(!app.Steamer.steamer) return app.gamesView.errorNoSteamer()
-      gamesView.renderGamesList()
+      if(!app.Steamer.steamer) return app.GamesView.errorNoSteamer()
+      GamesView.renderGamesList()
     }
 
     errorNoSteamer(){
@@ -23,14 +23,14 @@ var app = app || {};
 
       // Add the cached flag to trigger warnings so the user know this is only a cached version.
       app.Steamer.steamer.cached = true
-      gamesView.renderGamesList()
+      GamesView.renderGamesList()
     }
 
     renderGamesList(){
       if(app.Steamer.steamer.cached) $('#game-localuser-error').show()
-      if(gamesView.alreadyRendered) return // prevents duplicating the page.
+      if(GamesView.alreadyRendered) return // prevents duplicating the page.
 
-      gamesView.alreadyRendered = true;
+      GamesView.alreadyRendered = true;
       let template = Handlebars.compile($('#game-details-template').text());
       app.Steamer.steamer.games.map( game => {
         $('#games-list').append(template(game))
@@ -38,6 +38,6 @@ var app = app || {};
     }
   }
 
-  gamesView.alreadyRendered = false;
-  app.gamesView = gamesView
+  GamesView.alreadyRendered = false;
+  app.GamesView = new GamesView()
 }

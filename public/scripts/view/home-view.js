@@ -4,7 +4,7 @@ var app = app || {};
 
 {
 
-  class homeView {
+  class HomeView {
     initHomeView(ctx,next){
       console.log('Inside initHomeView')
       $('.page').hide()
@@ -27,5 +27,5 @@ var app = app || {};
     }
   }
 
-  app.homeView = homeView
+  app.HomeView = new HomeView()
 }
