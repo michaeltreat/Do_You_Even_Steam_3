@@ -42,7 +42,6 @@ var app = app || {};
     }
 
     getUserData(ctx,next){
-      console.log('In getUserData')
       $.get(`${_API_}/steamers/${this.steamId}`)
         .then(results => {
           // Return false if the api returns failed. will prompt errorview.

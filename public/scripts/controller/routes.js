@@ -8,8 +8,8 @@ page('/steamer', app.shameView.initShameView, app.shameView.calculateShame)
 
 page('/games', app.gamesView.initGamesView)
 
-page('*', () => console.log('anything else'), app.homeView.initHomeView)
+page('*', app.homeView.initHomeView)
 
 page()
 
-if(window.location.pathname !== '/') page('/')
+// if(window.location.pathname !== '/') page('/')

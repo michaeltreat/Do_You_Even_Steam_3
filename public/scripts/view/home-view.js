@@ -6,7 +6,6 @@ var app = app || {};
 
   class HomeView {
     initHomeView(ctx,next){
-      console.log('Inside initHomeView')
       $('.page').hide()
       $('#invalid-user-error').hide()
       $('#home-view').show()
