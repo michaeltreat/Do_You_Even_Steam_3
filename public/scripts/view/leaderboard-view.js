@@ -2,15 +2,15 @@
 
 var app = app || {};
 
-(function(module){
-  const leaderboardView = {}
-
-  leaderboardView.initLeaderboardView = ctx =>{
-    console.log('Inside leaderboar-view!')
-    console.log(ctx)
-    $('.page').hide()
-    $('#leaderboard-view').show();
+{
+  class leaderboardView {
+    initLeaderboardView(ctx){
+      console.log('Inside leaderboar-view!')
+      console.log(ctx)
+      $('.page').hide()
+      $('#leaderboard-view').show();
+    }
   }
 
-  module.leaderboardView = leaderboardView
-})(app)
+  app.leaderboardView = leaderboardView
+}

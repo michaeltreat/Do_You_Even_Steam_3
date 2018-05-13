@@ -1,4 +1,5 @@
 'use strict'
+/* global page, app */
 
 page('/', app.homeView.initHomeView, app.shameView.initShameView, app.shameView.calculateShame)
 

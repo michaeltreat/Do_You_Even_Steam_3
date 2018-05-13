@@ -2,16 +2,14 @@
 
 var app = app || {};
 
-(function(module){
+{
+  class aboutView{
+    initAboutView(){
+      console.log('Inside about-view.')
 
-  const aboutView = {}
-  
-  aboutView.initAboutView = () =>{
-    console.log('Inside about-view.')
-   
-    $('.page').hide()
-    $('#about-view').show()
+      $('.page').hide()
+      $('#about-view').show()
+    }
   }
-
-  module.aboutView = aboutView
-})(app)
+  app.aboutView = aboutView
+}
