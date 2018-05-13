@@ -1,7 +1,6 @@
 'use strict'
 /* global page, app */
 
-if(window.location.pathname !== '/') page('/')
 
 page('/', app.homeView.initHomeView, app.shameView.initShameView, app.shameView.calculateShame)
 
@@ -13,3 +12,4 @@ page('*', () => console.log('anything else'), app.homeView.initHomeView)
 
 page()
 
+if(window.location.pathname !== '/') page('/')
