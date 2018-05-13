@@ -27,7 +27,7 @@ var app = app || {};
 
     renderShame() {
       if(app.steamer.cached) $('#shame-localuser-error').show()
-      if(ShameView.alreadyRendered) return
+      if(app.shameView.alreadyRendered) return
 
       app.shameView.alreadyRendered = true
       let template = Handlebars.compile($('#shame-template').text())
