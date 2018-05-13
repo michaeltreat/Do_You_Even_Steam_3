@@ -27,5 +27,5 @@ var app = app || {};
     }
   }
 
-  app.HomeView = new HomeView()
+  app.homeView = new HomeView()
 }

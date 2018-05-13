@@ -11,33 +11,33 @@ var app = app || {};
       $('.page').hide()
       $('#games-view').show()
 
-      if(!app.Steamer.steamer) return app.GamesView.errorNoSteamer()
-      GamesView.renderGamesList()
+      if(!app.steamer) return app.gamesView.errorNoSteamer()
+      app.gamesView.renderGamesList()
     }
 
     errorNoSteamer(){
       if(!localStorage.steamer) return $('#game-nouser-error').show()
 
-      let s = JSON.parse(localStorage.steamer)
-      new app.Steamer(s.vanityUrl, s.steamId, s.hours, s.games)
-
+      let { vanityUrl, steamId, hours, games } = JSON.parse(localStorage.steamer)
+      new app.Steamer(vanityUrl, steamId, hours, games)
+     
       // Add the cached flag to trigger warnings so the user know this is only a cached version.
-      app.Steamer.steamer.cached = true
-      GamesView.renderGamesList()
+      app.steamer.cached = true
+      app.gamesView.renderGamesList()
     }
 
     renderGamesList(){
-      if(app.Steamer.steamer.cached) $('#game-localuser-error').show()
-      if(GamesView.alreadyRendered) return // prevents duplicating the page.
+      if(app.steamer.cached) $('#game-localuser-error').show()
+      if(app.gamesView.alreadyRendered) return // prevents duplicating the page.
 
-      GamesView.alreadyRendered = true;
+      app.gamesView.alreadyRendered = true;
       let template = Handlebars.compile($('#game-details-template').text());
-      app.Steamer.steamer.games.map( game => {
+      app.steamer.games.map( game => {
         $('#games-list').append(template(game))
       })
     }
   }
 
-  GamesView.alreadyRendered = false;
-  app.GamesView = new GamesView()
+  app.gamesView = new GamesView()
+  app.gamesView.alreadyRendered = false;
 }

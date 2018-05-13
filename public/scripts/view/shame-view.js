@@ -10,31 +10,31 @@ var app = app || {};
       $('.page').hide()
       $('#shame-view').show()
 
-      if(!app.Steamer.steamer) return app.ShameView.errorNoSteamer()
-      ShameView.renderShame()
+      if(!app.steamer) return app.shameView.errorNoSteamer()
+      app.shameView.renderShame()
     }
 
     errorNoSteamer() {
       if(!localStorage.steamer) return $('#shame-nouser-error').show()
-
-      let s = JSON.parse(localStorage.steamer)
-      new app.Steamer(s.vanityUrl, s.steamId, s.hours, s.games)
+      
+      let {vanityUrl, steamId, hours, games} = JSON.parse(localStorage.steamer)
+      new app.Steamer(vanityUrl, steamId, hours, games)
 
       // Add the cached flag to trigger warning for the user that this is just the cached version.
-      app.Steamer.steamer.cached = true
-      ShameView.renderShame()
+      app.steamer.cached = true
+      app.shameView.renderShame()
     }
 
     renderShame() {
-      if(app.Steamer.steamer.cached) $('#shame-localuser-error').show()
+      if(app.steamer.cached) $('#shame-localuser-error').show()
       if(ShameView.alreadyRendered) return
 
-      ShameView.alreadyRendered = true
+      app.shameView.alreadyRendered = true
       let template = Handlebars.compile($('#shame-template').text())
-      $('#shame-view').append(template(app.Steamer.steamer))
+      $('#shame-view').append(template(app.steamer))
     }
   }
 
-  ShameView.alreadyRendered = false;
-  app.ShameView = new ShameView()
+  app.shameView = new ShameView()
+  app.shameView.alreadyRendered = false;
 }

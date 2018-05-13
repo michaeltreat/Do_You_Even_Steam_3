@@ -12,7 +12,7 @@ var app = app || {};
       this.hours = hours
       this.games = games
       this.rank = 'No position yet!'
-      this.steamer = this
+      app.steamer = this
       return this
     }
 
@@ -35,7 +35,7 @@ var app = app || {};
         .then( potentialSteamId => {
           if(potentialSteamId) return this.getUserData(ctx, next)
 
-          delete app.Steamer.steamer
+          delete app.steamer
           return app.homeView.errorInvalidSteamer()
         })
         .catch( err => console.log(err))
@@ -50,7 +50,7 @@ var app = app || {};
 
           results = JSON.parse(results.text)
           this.gameData = results.response
-          this.games = this.gameData.games
+          this.games = this.gameData.games || []
           this.gamesCount = this.gameData.game_count
           return this
 
@@ -63,7 +63,7 @@ var app = app || {};
     }
 
     calcHours(ctx,next){
-      this.hours = this.games.map( game => game.playtime_forever).reduce( (hour, cum) => cum += hour, 0 ) / 60
+      this.hours = this.games.map( game => game.playtime_forever).reduce( (hour, curr) => curr += hour, 0 ) / 60
       this.wage = this.hours * 15
       ctx.steamer = this
       localStorage.steamer = JSON.stringify(this)
