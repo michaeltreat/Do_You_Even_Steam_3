@@ -11,5 +11,5 @@ var app = app || {};
     }
   }
 
-  app.HelpView = new HelpView()
+  app.helpView = new HelpView()
 }

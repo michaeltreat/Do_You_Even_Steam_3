@@ -11,5 +11,5 @@ var app = app || {};
       $('#about-view').show()
     }
   }
-  app.AboutView = new AboutView()
+  app.aboutView = new AboutView()
 }

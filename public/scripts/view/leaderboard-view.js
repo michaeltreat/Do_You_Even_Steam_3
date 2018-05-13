@@ -12,5 +12,5 @@ var app = app || {};
     }
   }
 
-  app.LeaderboardView = new LeaderboardView()
+  app.leaderboardView = new LeaderboardView()
 }

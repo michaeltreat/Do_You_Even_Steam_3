@@ -1,10 +1,15 @@
 'use strict'
 /* global page, app */
 
-page('/', app.HomeView.initHomeView, app.ShameView.initShameView, app.ShameView.calculateShame)
+if(window.location.pathname !== '/') page.base(window.location.pathname)
 
-page('/steamer', app.ShameView.initShameView, app.ShameView.calculateShame)
+page('/', app.homeView.initHomeView, app.shameView.initShameView, app.shameView.calculateShame)
 
-page('/games', app.GamesView.initGamesView)
+page('/steamer', app.shameView.initShameView, app.shameView.calculateShame)
+
+page('/games', app.gamesView.initGamesView)
+
+page('*', app.homeView.initHomeView)
 
 page()
+
