@@ -20,7 +20,7 @@ var app = app || {};
 
       let { vanityUrl, steamId, hours, games } = JSON.parse(localStorage.steamer)
       new app.Steamer(vanityUrl, steamId, hours, games)
-     
+
       // Add the cached flag to trigger warnings so the user know this is only a cached version.
       app.steamer.cached = true
       app.gamesView.renderGamesList()
@@ -32,7 +32,9 @@ var app = app || {};
 
       app.gamesView.alreadyRendered = true;
       let template = Handlebars.compile($('#game-details-template').text());
-      app.steamer.games.map( game => {
+      app.steamer.games.sort(( a, b ) => {
+        return b.playtime_forever - a.playtime_forever
+      }).map( game => {
         game.playtime_forever = Math.round( (game.playtime_forever / 60) * 100) / 100
         $('#games-list').append(template(game))
       })
