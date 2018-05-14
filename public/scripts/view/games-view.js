@@ -31,7 +31,7 @@ var app = app || {};
       if(app.gamesView.alreadyRendered) return // prevents duplicating the page.
 
       app.gamesView.alreadyRendered = true;
-      $('#games-list').empty()
+      $('.game-details').remove()
       
       let template = Handlebars.compile($('#game-details-template').text());
       app.steamer.games.sort(( a, b ) => {

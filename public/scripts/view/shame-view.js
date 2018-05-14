@@ -22,14 +22,14 @@ var app = app || {};
 
       // Add the cached flag to trigger warning for the user that this is just the cached version.
       app.steamer.cached = true
+      app.steamer.calcHours()
       app.shameView.renderShame()
     }
 
     renderShame() {
       if(app.steamer.cached) $('#shame-localuser-error').show()
       if(app.shameView.alreadyRendered) return
-      $('#shame-view').empty()
-
+      $('#shame-details').remove()
       app.shameView.alreadyRendered = true
       let template = Handlebars.compile($('#shame-template').text())
       $('#shame-view').append(template(app.steamer))

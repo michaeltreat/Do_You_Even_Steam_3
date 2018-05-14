@@ -4,36 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
     <link rel="shortcut icon" href="./public/assets/favicon.ico" type="image/x-icon">
-    <title>Do You Even Steam</title>
-    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
-
     <link rel="stylesheet" href="./public/styles/reset.css">
     <link rel="stylesheet" href="./public/styles/base.css">
     <link rel="stylesheet" href="./public/styles/layout.css">
     <link rel="stylesheet" href="./public/styles/module.css">
-
+    
+    <title>Do You Even Steam</title>
     <!-- Handlebars Templates -->
 
+    <!-- Game view template -->
     <script type="text/x-handlebars-template" id="game-details-template">
-      <article>
+      <article class="game-details">
         <h3>{{name}}</h3>
-        <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{appid}}/{{img_logo_url}}.jpg">
         <p>Hours played: {{{playtime_forever}}}</p>
+        <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{appid}}/{{img_logo_url}}.jpg">
       </article>
     </script>
 
+    <!-- Shame view / stats template -->
+
     <script type="text/x-handlebars-template" id="shame-template">
-      <section>
-        <h2>Welcome to your shame!</h2>
-        <p>Your total hours played: {{hours}}.</p>
-        <p>You own {{gamesCount}} games.</p>
-        <p>At $15 per hour your could have made: ${{wage}}.00.</p>
+      <section id="shame-details">
+        <h2> Welcome to your shame!</h2>
+        <h3>{{vanityUrl}} :</h3>
+        <p>Your total hours played: {{hours}} </p>
+        <p>You own {{gamesCount}} games, including free to play games!</p>
+        <p>At $15 per hour your could have made: ${{wage}} </p>
         <p>Current LeaderBoard Position: {{rank}}.</p>    
         <a href="/games">Click here to check out your game stats!</a>    
       </section>
     </script>
 
+
+    <!-- End of templates -->
   </head>
   <body>
     <nav>
@@ -63,7 +68,7 @@
     <section id="shame-view" class="page">
       <p id="shame-nouser-error" class="error">You must input a user to begin!</p>
       <p id="shame-localuser-error" class="error">This is a cached version of the last Steamer that logged in. To see the most recent data, please re-enter the Steamer</p>
-        <h2>shame-view</h2>
+      <h2>shame-view</h2>
         
     </section>
 

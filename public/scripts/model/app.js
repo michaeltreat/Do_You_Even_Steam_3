@@ -61,11 +61,11 @@ var app = app || {};
     }
 
     calcHours(ctx,next){
-      this.hours = this.games.map( game => game.playtime_forever).reduce( (hour, curr) => curr += hour, 0 ) / 60
-      this.wage = this.hours * 15
-      ctx.steamer = this
       localStorage.steamer = JSON.stringify(this)
-      next()
+      this.hours = this.games.map( game => game.playtime_forever).reduce( (hour, curr) => curr += hour, 0 ) / 60
+      this.hours = Math.round(this.hours * 100) / 100
+      this.wage = Math.round( (this.hours * 15) * 100) / 100
+      if(next) next()
     }
   }
 
