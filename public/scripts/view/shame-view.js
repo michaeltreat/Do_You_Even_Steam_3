@@ -16,7 +16,7 @@ var app = app || {};
 
     errorNoSteamer() {
       if(!localStorage.steamer) return $('#shame-nouser-error').show()
-      
+
       let {vanityUrl, steamId, hours, games} = JSON.parse(localStorage.steamer)
       new app.Steamer(vanityUrl, steamId, hours, games)
 

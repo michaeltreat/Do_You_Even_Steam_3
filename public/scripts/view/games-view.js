@@ -32,7 +32,7 @@ var app = app || {};
 
       app.gamesView.alreadyRendered = true;
       $('.game-details').remove()
-      
+
       let template = Handlebars.compile($('#game-details-template').text());
       app.steamer.games.sort(( a, b ) => {
         return b.playtime_forever - a.playtime_forever
