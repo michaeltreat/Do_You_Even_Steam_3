@@ -31,6 +31,8 @@ var app = app || {};
       if(app.gamesView.alreadyRendered) return // prevents duplicating the page.
 
       app.gamesView.alreadyRendered = true;
+      $('#games-list').empty()
+      
       let template = Handlebars.compile($('#game-details-template').text());
       app.steamer.games.sort(( a, b ) => {
         return b.playtime_forever - a.playtime_forever

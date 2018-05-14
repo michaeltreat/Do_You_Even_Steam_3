@@ -15,7 +15,6 @@ var app = app || {};
       app.steamer = this
       return this
     }
-
     getSteamId(ctx, next){
       $.get(`${_API_}/steamers/vanityurl/${this.vanityUrl}`)
         .then( data => {

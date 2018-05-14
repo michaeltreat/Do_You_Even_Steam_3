@@ -18,6 +18,8 @@ var app = app || {};
 
         if(!ctx.vanityurl) return console.log('no value in form.') // Checking for value before calling next.
         new app.Steamer(`${ctx.vanityurl}`).getSteamId(ctx, next)
+        app.shameView.alreadyRendered = false
+        app.gamesView.alreadyRendered = false
       })
     }
 
