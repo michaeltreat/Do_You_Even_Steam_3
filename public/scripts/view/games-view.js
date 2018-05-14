@@ -33,6 +33,7 @@ var app = app || {};
       app.gamesView.alreadyRendered = true;
       let template = Handlebars.compile($('#game-details-template').text());
       app.steamer.games.map( game => {
+        game.playtime_forever = Math.round( (game.playtime_forever / 60) * 100) / 100
         $('#games-list').append(template(game))
       })
     }
