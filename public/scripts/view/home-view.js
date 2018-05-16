@@ -9,6 +9,7 @@ var app = app || {};
       $('.page').hide()
       $('#invalid-user-error').hide()
       $('#home-view').show()
+      $('input[name=steamer]').focus()
 
       $('#search-steamer').off().on('submit', (e) => {
         $('.error').hide()
