@@ -3,3 +3,25 @@ img{
   max-width: 400px;
   min-width: 150px;
 }
+
+nav > ul {
+  text-align: center;
+  padding-top:1%;
+
+}
+
+nav > ul > li {
+  font-size: 1.5em;
+  display: inline;
+  margin: 2%;
+}
+
+nav > ul > li > a {
+  text-decoration: none;
+}
+
+nav > ul > li > a:visited{
+  color:black;
+  text-decoration: none;
+  
+}

@@ -1,6 +1,27 @@
+@font-face{
+  font-family: Gasalt-Black;
+  src: url(./fonts/Gasalt-Black.ttf)
+}
+
+*{
+  font-family: Gasalt-Black;
+  text-align: center;
+}
+
+body{
+  width: 80%;
+  margin: auto;
+}
+
+
 .page{
   display: none;
 }
 .error{
   display:none;
+}
+
+nav{
+  height: 10%;
+  background-color: lightslategrey
 }

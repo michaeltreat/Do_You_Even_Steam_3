@@ -43,48 +43,50 @@
   <body>
     <nav>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/steamer">Steamer Stats</a></li>
+        <li><a href="/">Search</a></li>
+        <li>|</li>
+        <li><a href="/steamer">Shame</a></li>
+        <li>|</li>
         <li><a href="/games">Game Stats</a></li>
+        <li>|</li>
         <li><a href="/leaderboard">Leaderboard</a></li>
+        <li>|</li>
         <li><a href="/about">About Us</a></li>
       </ul>
 
     </nav>
 
     <section id="home-view" class="page">
-      <h2>home-view</h2>
+      <h2>Search for a Steamer!</h2>
+      <p id="invalid-user-error" class="error">Sorry, no results for that user. Enter either your Steam Id or your Vanity Url!</p>
       <form id="search-steamer">
-        <label for="steamer">Search for a Steamer:<input type="text" name="steamer" placeholder="KillerTreat" autofocus><button type="submit">Submit</button></label>
-        <p id="invalid-user-error" class="error">Sorry, no results for that user. Enter either your Steam Id or your Vanity Url!</p>
+        <input type="text" name="steamer" placeholder="KillerTreat" autofocus><button type="submit">Submit</button>
       </form>
 
+    </section>
+    
+    <section id="shame-view" class="page">
+      <p id="shame-nouser-error" class="error">You must input a user to begin!</p>
+      <p id="shame-localuser-error" class="error">This is a cached version of the last Steamer that logged in. To see the most recent data, please re-enter the Steamer</p>
+    </section>
+    
+    <section id="games-view" class="page">
+      <p id="game-nouser-error" class="error">You must input a user to begin!</p>
+      <p id="game-localuser-error" class="error">This is a cached version of the last Steamer that logged in. To see the most recent data, please re-enter the Steamer</p>
+      <h2>games-view</h2>
+      <div id="games-list"></div>
+    </section>
+    
+    <section id="leaderboard-view" class="page">
+      <h2>leaderboard-view</h2>
+    </section>
+    
+    <section id="about-view" class="page">
+      <h2>about-view</h2>
     </section>
 
     <section id="help-view" class="page">
       <h2>help-view</h2>
-    </section>
-
-    <section id="shame-view" class="page">
-      <p id="shame-nouser-error" class="error">You must input a user to begin!</p>
-      <p id="shame-localuser-error" class="error">This is a cached version of the last Steamer that logged in. To see the most recent data, please re-enter the Steamer</p>
-      <h2>shame-view</h2>
-        
-    </section>
-
-    <section id="games-view" class="page">
-        <p id="game-nouser-error" class="error">You must input a user to begin!</p>
-        <p id="game-localuser-error" class="error">This is a cached version of the last Steamer that logged in. To see the most recent data, please re-enter the Steamer</p>
-        <h2>games-view</h2>
-        <div id="games-list"></div>
-    </section>
-
-    <section id="leaderboard-view" class="page">
-        <h2>leaderboard-view</h2>
-    </section>
-
-    <section id="about-view" class="page">
-        <h2>about-view</h2>
     </section>
       
 
