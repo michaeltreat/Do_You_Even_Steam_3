@@ -13,19 +13,24 @@ body{
   text-align: center;
 }
 
-/* .left-align{
-  text-align: left;
-  color: blue;
+#home-view > form  > input {
+  text-align: center;
 }
-#stats{
-  width: 50%;
-  margin: auto;
-} */
-
 #shame-view{
   font-size: 150%;
+  width: 50%;
+  margin: auto;
+  text-align: left;
+  padding-left: 10%;
 }
 
+#shame-view > h2{
+  font-size: 200%;
+}
+#shame-details{
+  width:80%;
+  margin-left: 5%;
+}
 #shame-details > h3{
   font-family: monospace;
   font-size: 200%;
@@ -37,6 +42,36 @@ body{
   font-size: 125%;
 }
 
+#stats{
+  clear: both;
+}
+#stats > p > span{
+float:right; 
+}
+
+
+
+ol > li {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  margin-top: 2%;
+}
+ol > li > article{
+}
+
+article > * {
+  display: inline-block;
+  vertical-align: middle
+}
+
+article > img {
+  width: 75%;
+}
+
+article > div{
+  width: 15%;
+}
 .page{
   display: none;
 }

@@ -38,7 +38,7 @@ var app = app || {};
         return b.playtime_forever - a.playtime_forever
       }).map( game => {
         game.playtime_forever = Math.round( (game.playtime_forever / 60) * 100) / 100
-        $('#games-list').append(template(game))
+        $('#games-attach').append(template(game))
       })
     }
   }

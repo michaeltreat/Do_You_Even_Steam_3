@@ -14,30 +14,34 @@
     <title>Do You Even Steam</title>
     <!-- Handlebars Templates -->
 
-    <!-- Game view template -->
-    <script type="text/x-handlebars-template" id="game-details-template">
-      <article class="game-details">
-        <h3>{{name}}</h3>
-        <p>Hours played: {{{playtime_forever}}}</p>
-        <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{appid}}/{{img_logo_url}}.jpg">
-      </article>
-    </script>
-
+    
     <!-- Shame view / stats template -->
-
+    
     <script type="text/x-handlebars-template" id="shame-template">
       <section id="shame-details">
         <h3>{{vanityUrl}}:</h3>
         <div id="stats" class="left-align">
-          <p>Total number of games owned:  <span>{{gamesCount}}</span></p>
           <p>Total hours played: <span>{{hours}}</span> </p>
-          <p>At $15 per hour your could have made: ${{wage}} </p>
-          <p>Current LeaderBoard Position: {{rank}}.</p>    
+          <p>Total number of games owned:  <span>{{gamesCount}}</span></p>
+          <p>At $15 per hour your could have made: <span>${{wage}}</span> </p>
+          <p>Current LeaderBoard Position: <span>{{rank}}</span>.</p>    
         </div>
-          <a href="/games">Click here to check out your game stats!</a>    
+        <a href="/games">Click here to check out your game stats!</a>    
       </section>
     </script>
-
+    
+    <!-- Game view template -->
+    <script type="text/x-handlebars-template" id="game-details-template">
+      <li class="game-details">
+        <article >
+          <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{appid}}/{{img_logo_url}}.jpg">
+          <div>
+            <h3>{{name}}</h3>
+            <p>Hours played: {{{playtime_forever}}}</p>
+          </div>
+        </article>
+      </li>
+    </script>
 
     <!-- End of templates -->
   </head>
@@ -61,7 +65,7 @@
       <h2>Search for a Steamer!</h2>
       <p id="invalid-user-error" class="error">Sorry, no results for that user. Enter either your Steam Id or your Vanity Url!</p>
       <form id="search-steamer">
-        <input type="text" name="steamer" placeholder="KillerTreat" autofocus><button type="submit">Submit</button>
+        <input type="text" name="steamer" placeholder="KillerTreat"><button type="submit">Submit</button>
       </form>
 
     </section>
@@ -82,8 +86,7 @@
       <p id="game-localuser-error" class="error">
         This is a cached version of the last Steamer entered.<br/>
         To see the most recent data, please re-enter the Steamer</p>
-      <h2>games-view</h2>
-      <div id="games-list"></div>
+      <ol id="games-attach"></ol>
     </section>
     
     <section id="leaderboard-view" class="page">
