@@ -21,9 +21,9 @@
       <section id="shame-details">
         <h3>{{vanityUrl}}:</h3>
         <div id="stats" class="left-align">
-          <p>Total hours played: <span>{{hours}}</span> </p>
+          <p>Total hours played: <span>{{hours}} hrs</span></p>
           <p>Total number of games owned:  <span>{{gamesCount}}</span></p>
-          <p>At $15 per hour your could have made: <span>${{wage}}</span> </p>
+          <p>At $15 per hour your could have made: <span>$ {{wage}}</span> </p>
           <p>Current LeaderBoard Position: <span>{{rank}}</span>.</p>    
         </div>
         <a href="/games">Click here to check out your game stats!</a>    
@@ -35,9 +35,9 @@
       <li class="game-details">
         <article >
           <img src="http://media.steampowered.com/steamcommunity/public/images/apps/{{appid}}/{{img_logo_url}}.jpg">
-          <div>
+          <div class="game-stats"> 
             <h3>{{name}}</h3>
-            <p>Hours played: {{{playtime_forever}}}</p>
+            <p>Hours played:<br/>{{playtime_forever}}</p>
           </div>
         </article>
       </li>
@@ -82,10 +82,12 @@
     </section>
     
     <section id="games-view" class="page">
+      <h2>Game Stats!</h2>
+      <p>Here's a list of the Steamer's games! <br/> The list is ordered from most played to least played!</p>
       <p id="game-nouser-error" class="error">You must input a user to begin!</p>
       <p id="game-localuser-error" class="error">
-        This is a cached version of the last Steamer entered.<br/>
-        To see the most recent data, please re-enter the Steamer</p>
+        *This is a cached version of the last Steamer entered.<br/>
+        *To see current data, please re-enter the Steamer.</p>
       <ol id="games-attach"></ol>
     </section>
     

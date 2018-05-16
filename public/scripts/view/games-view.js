@@ -37,7 +37,7 @@ var app = app || {};
       app.steamer.games.sort(( a, b ) => {
         return b.playtime_forever - a.playtime_forever
       }).map( game => {
-        game.playtime_forever = Math.round( (game.playtime_forever / 60) * 100) / 100
+        game.playtime_forever = (Math.round( (game.playtime_forever / 60) * 100) / 100).toLocaleString()
         $('#games-attach').append(template(game))
       })
     }

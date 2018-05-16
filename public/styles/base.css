@@ -13,9 +13,12 @@ body{
   text-align: center;
 }
 
+/* Home view section */
 #home-view > form  > input {
   text-align: center;
 }
+
+/* Shame view section */
 #shame-view{
   font-size: 150%;
   width: 50%;
@@ -45,33 +48,43 @@ body{
 #stats{
   clear: both;
 }
+
 #stats > p > span{
 float:right; 
 }
 
+/* Games view section */
 
 
+#games-view{
+  font-size: 150%
+}
+
+ol{
+  padding-left: 10%;
+}
 ol > li {
-  width: 50%;
+  width: 80%;
   margin: auto;
-  text-align: center;
   margin-top: 2%;
 }
+
 ol > li > article{
+  text-align: left
 }
 
 article > * {
   display: inline-block;
-  vertical-align: middle
+  vertical-align: middle;
+  padding: 1%;
 }
 
 article > img {
-  width: 75%;
+    width: 50%;
+    max-width: 400px;
+    min-width: 150px;
 }
 
-article > div{
-  width: 15%;
-}
 .page{
   display: none;
 }
