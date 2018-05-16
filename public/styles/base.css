@@ -5,20 +5,45 @@
 
 *{
   font-family: Gasalt-Black;
-  text-align: center;
 }
 
 body{
   width: 80%;
   margin: auto;
+  text-align: center;
 }
 
+/* .left-align{
+  text-align: left;
+  color: blue;
+}
+#stats{
+  width: 50%;
+  margin: auto;
+} */
+
+#shame-view{
+  font-size: 150%;
+}
+
+#shame-details > h3{
+  font-family: monospace;
+  font-size: 200%;
+  margin-top: -.5em;
+  margin-bottom: -.25em;
+}
+
+#shame-details > p {
+  font-size: 125%;
+}
 
 .page{
   display: none;
 }
 .error{
   display:none;
+  color:orangered;
+  font-size: 1em
 }
 
 nav{

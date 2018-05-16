@@ -17,8 +17,8 @@ var app = app || {};
     errorNoSteamer() {
       if(!localStorage.steamer) return $('#shame-nouser-error').show()
 
-      let {vanityUrl, steamId, hours, games} = JSON.parse(localStorage.steamer)
-      new app.Steamer(vanityUrl, steamId, hours, games)
+      let {vanityUrl, steamId, hours, games, gamesCount} = JSON.parse(localStorage.steamer)
+      new app.Steamer(vanityUrl, steamId, hours, games, gamesCount)
 
       // Add the cached flag to trigger warning for the user that this is just the cached version.
       app.steamer.cached = true
@@ -32,7 +32,7 @@ var app = app || {};
       $('#shame-details').remove()
       app.shameView.alreadyRendered = true
       let template = Handlebars.compile($('#shame-template').text())
-      $('#shame-view').append(template(app.steamer))
+      $('#shame-attach').append(template(app.steamer))
     }
   }
 

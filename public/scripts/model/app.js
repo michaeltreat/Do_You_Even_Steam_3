@@ -6,14 +6,16 @@ var app = app || {};
   const _API_ = 'https://dyes.herokuapp.com/api/v1'
 
   class Steamer {
-    constructor(vanityUrl, steamIdNumber, hours, games){
+    constructor(vanityUrl, steamIdNumber, hours, games, gamesCount){
       this.vanityUrl = vanityUrl
       this.steamId = steamIdNumber
       this.hours = hours
       this.games = games
+      this.gamesCount = gamesCount
       this.rank = 'No position yet!'
       app.steamer = this
       return this
+
     }
     getSteamId(ctx, next){
       $.get(`${_API_}/steamers/vanityurl/${this.vanityUrl}`)
@@ -50,21 +52,29 @@ var app = app || {};
           this.gameData = results.response
           this.games = this.gameData.games || []
           this.gamesCount = this.gameData.game_count
+          console.log(this.gamesCount)
           return this
 
         }).then( validUser => {
-          if(validUser) return this.calcHours(ctx, next)
+          if(validUser){
+            this.cacheSteamer()
+            this.calcHours(ctx, next)
+          }
           return app.homeView.errorInvalidSteamer()
         })
         .catch(err => console.log(err))
-
     }
 
-    calcHours(ctx,next){
+    cacheSteamer(){
       localStorage.steamer = JSON.stringify(this)
-      this.hours = this.games.map( game => game.playtime_forever).reduce( (hour, curr) => curr += hour, 0 ) / 60
-      this.hours = Math.round(this.hours * 100) / 100
-      this.wage = Math.round( (this.hours * 15) * 100) / 100
+    }
+    calcHours(ctx,next){
+      
+      let hours = this.games.map( game => game.playtime_forever).reduce( (hour, curr) => curr += hour, 0 ) / 60
+      hours = Math.round(hours * 100) / 100
+
+      this.wage = (Math.round( (hours * 15) * 100) / 100).toLocaleString()
+      this.hours = hours.toLocaleString()
       if(next) next()
     }
   }

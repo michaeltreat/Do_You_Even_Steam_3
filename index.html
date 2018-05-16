@@ -27,13 +27,14 @@
 
     <script type="text/x-handlebars-template" id="shame-template">
       <section id="shame-details">
-        <h2> Welcome to your shame!</h2>
-        <h3>{{vanityUrl}} :</h3>
-        <p>Your total hours played: {{hours}} </p>
-        <p>You own {{gamesCount}} games, including free to play games!</p>
-        <p>At $15 per hour your could have made: ${{wage}} </p>
-        <p>Current LeaderBoard Position: {{rank}}.</p>    
-        <a href="/games">Click here to check out your game stats!</a>    
+        <h3>{{vanityUrl}}:</h3>
+        <div id="stats" class="left-align">
+          <p>Total number of games owned:  <span>{{gamesCount}}</span></p>
+          <p>Total hours played: <span>{{hours}}</span> </p>
+          <p>At $15 per hour your could have made: ${{wage}} </p>
+          <p>Current LeaderBoard Position: {{rank}}.</p>    
+        </div>
+          <a href="/games">Click here to check out your game stats!</a>    
       </section>
     </script>
 
@@ -66,13 +67,21 @@
     </section>
     
     <section id="shame-view" class="page">
+      <h2> Welcome to your Shame!</h2>
+
+      <div id="shame-attach"></div>
+
       <p id="shame-nouser-error" class="error">You must input a user to begin!</p>
-      <p id="shame-localuser-error" class="error">This is a cached version of the last Steamer that logged in. To see the most recent data, please re-enter the Steamer</p>
+      <p id="shame-localuser-error" class="error">
+        *This is a cached version of the last Steamer entered.<br/>
+        *To see current data, please re-enter the Steamer.</p>
     </section>
     
     <section id="games-view" class="page">
       <p id="game-nouser-error" class="error">You must input a user to begin!</p>
-      <p id="game-localuser-error" class="error">This is a cached version of the last Steamer that logged in. To see the most recent data, please re-enter the Steamer</p>
+      <p id="game-localuser-error" class="error">
+        This is a cached version of the last Steamer entered.<br/>
+        To see the most recent data, please re-enter the Steamer</p>
       <h2>games-view</h2>
       <div id="games-list"></div>
     </section>
