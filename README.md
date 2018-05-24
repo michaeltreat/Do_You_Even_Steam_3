@@ -8,9 +8,9 @@ The leaderboard functionality is almost complete, but the project was put on hol
 
 Current goal is to just wire together a basic full stack app that uses full CRUD routes. It will utilize a PostgreSQL database, and uses the Steam API for data, with jQuery and PageJS on the FE.
 
-Click here to see the current state of the project:
+---
 
-**NOTE :*** The back-end is deployed on Heroku, but it falls asleep when not used for a certin amount of time. That means your first request may take a bit longer, as the server needs to wake up first.
+**NOTE :** The back-end is deployed on Heroku, but it falls asleep when not used after a certin amount of time. That means your first request may take a bit longer, as the server needs to wake up first. I'll add a loading image to fix this in the future.
 
 https://michaeltreat.github.io/Do_You_Even_Steam_3/
 
@@ -19,4 +19,5 @@ https://michaeltreat.github.io/Do_You_Even_Steam_3/
 2. If a user is found, it will automatically bring you to the Steamer Shame page for an overview of your stats.
 3. Click on the `Game Stats` link to see a breakdown of each of your games.
 
-4. Leaderboard and About are not available atm.
+
+- Leaderboard and About are not available atm.
