@@ -1,24 +1,67 @@
 'use strict'
 
-const express = require('express') // Express server.
-const superAgent = require('superagent') // Used as a proxy server.
-const pg = require('pg') // PostgreSQL database.
-const cors = require('cors') // Allows us to accept all requests.
-const bodyParser = require('body-parser').urlencoded({extended: true}) // To parse the body of our requests.
+const express = require('express')
+const superAgent = require('superagent')
+const pg = require('pg')
+const cors = require('cors')
+const bodyParser = require('body-parser').urlencoded({extended: true})
+
+const passport = require('passport')
+const util = require('util')
+const Strat = require('passport-steam')
 
 const PORT = process.env.PORT || 3000
 const KEY = process.env.KEY
-const _API_ = 'https://api.steampowered.com' 
+const _API_ = 'https://api.steampowered.com'
 
+
+// Passport
+passport.serializeUser((user, done) => done(null, user))
+passport.deserializeUser((obj, done) => done(null, obj))
+
+let config = {
+  returnURL: 'http://localhost:8080/',
+  realm: 'http://localhost:3000/',
+  apiKey: process.env.KEY
+}
+
+passport.use(new Strat(config, (identifier, profile, done) => {
+  process.nextTick(() => {
+    console.log(profile)
+    profile.identifier = identifier;
+    return done(null, profile);
+  });
+}
+));
 
 // Connect to Database
-const client = new pg.Client('postgres://postgres:12341234@localhost:5432/dyes')
+const client = new pg.Client('postgres:michaeltreat@localhost:5432/dyes')
 client.connect()
 client.on('error', error => console.log('Error connecting to DB:', error))
 
 // Initialize app.
 const app = express()
 app.use(cors()) // Open to all requests.
+app.use(passport.initialize());
+
+
+
+// ----------- Passport Endpoints ---------------
+app.get('/auth/steam',
+  passport.authenticate('steam', { failureRedirect: '/' }),
+  function(req, res) {
+    console.log('in auth/steam')
+
+    res.redirect('localhost:8080/');
+  });
+
+app.get('/auth/steam/return',
+  passport.authenticate('steam', { failureRedirect: '/' }),
+  function(req, res) {
+    console.log('in auth/steam/return')
+
+    res.redirect('localhost:8080/');
+  });
 
 // ----------- SteamAPI Endpoints ---------------
 
