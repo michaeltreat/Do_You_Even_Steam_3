@@ -20,7 +20,7 @@ passport.serializeUser((user, done) => done(null, user))
 passport.deserializeUser((obj, done) => done(null, obj))
 
 let config = {
-  returnURL: 'http://localhost:8080/',
+  returnURL: 'http://localhost:3000/auth/steam/return',
   realm: 'http://localhost:3000/',
   apiKey: process.env.KEY
 }
@@ -52,15 +52,16 @@ app.get('/auth/steam',
   function(req, res) {
     console.log('in auth/steam')
 
-    res.redirect('localhost:8080/');
+    res.redirect('http://localhost:8080/');
   });
 
 app.get('/auth/steam/return',
   passport.authenticate('steam', { failureRedirect: '/' }),
   function(req, res) {
     console.log('in auth/steam/return')
-
-    res.redirect('localhost:8080/');
+    let steamid = (req.user._json.steamid)
+    res.user = req.user
+    res.redirect(`http://localhost:8080/?steamid=${steamid}`)
   });
 
 // ----------- SteamAPI Endpoints ---------------
