@@ -18,6 +18,13 @@ body{
   text-align: center;
 }
 
+#signins{
+  vertical-align: top;
+  display: inline;
+}
+#steam-signin{
+  max-width: 160px;
+ }
 /* Shame view section */
 #shame-view{
   font-size: 150%;

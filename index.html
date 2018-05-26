@@ -62,12 +62,20 @@
     </nav>
 
     <section id="home-view" class="page">
-      <h2>Search for a Steamer!</h2>
-      <p id="invalid-user-error" class="error">Sorry, no results for that user. Enter either your Steam Id or your Vanity Url!</p>
-      <form id="search-steamer">
-        <input type="text" name="steamer" placeholder="KillerTreat"><button type="submit">Submit</button>
-      </form>
-
+      <h2>Search for Steamers!</h2>
+      <div id="signins">
+        <p id="invalid-user-error" class="error">Sorry, no results for that user. Enter either your Steam Id or your Vanity Url!</p>
+        
+        <p>Want to see your Steam Stats? Login through Steam to see you stats!</p>
+        <!-- Oddly, this next line needs to be on 1 line, otherwise an underscore shows up. -->
+        <a href="https://dyes.herokuapp.com/auth/steam"><img id="steam-signin" src='./public/assets/sits_01.png'></a>
+        
+        <p>You can also check anyone's stats here as long as their profiles are public!</p>
+        <form id="search-steamer">
+          <input type="text" name="steamer" placeholder="KillerTreat"><button type="submit">Submit</button>
+        </form>
+      </div>
+        
     </section>
     
     <section id="shame-view" class="page">
