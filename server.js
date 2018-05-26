@@ -20,8 +20,8 @@ passport.serializeUser((user, done) => done(null, user))
 passport.deserializeUser((obj, done) => done(null, obj))
 
 let config = {
-  returnURL: 'http://localhost:3000/auth/steam/return',
-  realm: 'http://localhost:3000/',
+  returnURL: 'https://dyes.herokuapp.com/auth/steam/auth/steam/return',
+  realm: 'https://dyes.herokuapp.com/auth/steam/',
   apiKey: process.env.KEY
 }
 
@@ -62,7 +62,7 @@ app.get('/auth/steam/return',
     // let steamid = (req.user._json.steamid)
     let user = req.user._json.personaname
 
-    res.redirect(`http://localhost:8080/?vanityurl=${user}`)
+    res.redirect(`https://michaeltreat.github.io/Do_You_Even_Steam_3/?vanityurl=${user}`)
   });
 
 // ----------- SteamAPI Endpoints ---------------
