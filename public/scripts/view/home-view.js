@@ -15,6 +15,7 @@ var app = app || {};
         new app.Steamer(vanityurl).getSteamId(ctx, next)
         app.shameView.alreadyRendered = false
         app.gamesView.alreadyRendered = false
+        window.history.pushState('','','/')
       }
 
       $('#search-steamer').off().on('submit', (e) => {
