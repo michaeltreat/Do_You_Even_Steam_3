@@ -20,8 +20,8 @@ passport.serializeUser((user, done) => done(null, user))
 passport.deserializeUser((obj, done) => done(null, obj))
 
 let config = {
-  returnURL: 'https://dyes.herokuapp.com/auth/steam/auth/steam/return',
-  realm: 'https://dyes.herokuapp.com/auth/steam/',
+  returnURL: 'https://dyes.herokuapp.com/auth/steam/return',
+  realm: 'https://dyes.herokuapp.com/auth/steam',
   apiKey: process.env.KEY
 }
 
