@@ -59,9 +59,10 @@ app.get('/auth/steam/return',
   passport.authenticate('steam', { failureRedirect: '/' }),
   function(req, res) {
     console.log('in auth/steam/return')
-    let steamid = (req.user._json.steamid)
-    res.user = req.user
-    res.redirect(`http://localhost:8080/?steamid=${steamid}`)
+    // let steamid = (req.user._json.steamid)
+    let user = req.user._json.personaname
+
+    res.redirect(`http://localhost:8080/?vanityurl=${user}`)
   });
 
 // ----------- SteamAPI Endpoints ---------------

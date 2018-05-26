@@ -3,13 +3,19 @@
 var app = app || {};
 
 {
-
   class HomeView {
+
     initHomeView(ctx,next){
       $('.page').hide()
       $('#invalid-user-error').hide()
       $('#home-view').show()
       $('input[name=steamer]').focus()
+      if(window.location.search.includes('=')){
+        let vanityurl = window.location.search.split('=')[1]
+        new app.Steamer(vanityurl).getSteamId(ctx, next)
+        app.shameView.alreadyRendered = false
+        app.gamesView.alreadyRendered = false
+      }
 
       $('#search-steamer').off().on('submit', (e) => {
         $('.error').hide()
